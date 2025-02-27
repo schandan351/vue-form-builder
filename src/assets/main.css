@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+.form-component {
+    @apply border border-gray-300 rounded p-2 mb-2 bg-white cursor-move hover:border-blue-500 transition-colors;
+}
+
+.form-component-icon {
+    @apply flex items-center justify-center h-6 w-6 text-gray-600;
+}
+
+.form-builder-area {
+    @apply border-2 border-dashed border-gray-300 rounded-lg p-4 min-h-[300px] flex items-center justify-center bg-gray-50;
+}
+
+.form-builder-area.has-components {
+    @apply justify-start items-start;
+}
+
+.component-list {
+    @apply grid grid-cols-2 gap-2;
+}
+
+@media (min-width: 640px) {
+    .component-list {
+        @apply grid-cols-3;
+    }
+}
