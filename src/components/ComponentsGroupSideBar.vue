@@ -57,7 +57,7 @@ const getIconComponent = (icon: string) => {
           v-model="formStore.searchQuery"
           type="text"
           placeholder="Search components..."
-          class="w-full px-3 py-2 border rounded-md"
+          class="w-full px-3 my-2 py-2 border rounded-md"
       />
     </div>
     <div v-for="(group, groupIndex) in formStore.filteredComponentGroups" :key="groupIndex" class="mb-6">
@@ -73,7 +73,6 @@ const getIconComponent = (icon: string) => {
           <template #item="{element: component}">
             <div
                 class="cursor-pointer form-component"
-                @click="addComponent(component.type, component.label, component.icon)"
             >
               <div class="flex flex-col items-center justify-center text-center">
                 <div class="form-component-icon mb-1">
