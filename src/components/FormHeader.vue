@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 import {useFormStore} from '@/stores/formState';
+import {useRouter} from 'vue-router';
+
+const router = useRouter();
 
 const formStore = useFormStore();
 const isEditing = ref(false);
@@ -20,6 +23,10 @@ const cancelEditing = () => {
   formTitle.value = formStore.form.title;
   isEditing.value = false;
 };
+const handlePreview = () => {
+  router.push('/preview');
+};
+
 </script>
 
 <template>
@@ -68,7 +75,7 @@ const cancelEditing = () => {
         </svg>
         Theme
       </button>
-      <button class="px-3 py-1 border border-gray-300 rounded mr-2 text-sm hover:bg-gray-50">
+      <button class="px-3 py-1 border border-gray-300 rounded mr-2 text-sm hover:bg-gray-50" @click="handlePreview">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline mr-1" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd"
                 d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm11 1H6v8l4-2 4 2V6z"

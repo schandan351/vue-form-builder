@@ -4,7 +4,7 @@ export interface FormComponent {
     id: string;
     type: ComponentType;
     label: string;
-    icon: string;
+    icon: string|null;
     properties?: Record<string, any>;
 }
 
@@ -22,7 +22,7 @@ export enum ComponentType {
     RadioGroup = 'radioGroup',
     CheckboxGroup = 'checkboxGroup',
     Dropdown = 'dropdown',
-    Checkbox = 'checkbox',
+    Checkbox = 'checkBox',
     Date = 'date',
     Time = 'time',
     Number = 'number',
@@ -33,12 +33,21 @@ export enum ComponentType {
     Location = 'location',
     Image = 'image',
     PageBreak = 'pageBreak',
-    Sections = 'sections'
+    Sections = 'sections',
+    Grid = 'grid',
 }
 
 export interface FormState {
     title: string;
     components: FormComponent[];
+}
+
+export interface ComponentSettings {
+    label: string;
+    placeholder: string|null;
+    mandatory: boolean;
+    width: 'full' | 'half' | 'quarter';
+    columns: 2 |3 | null;
 }
 
 export interface FormStore {
@@ -48,4 +57,9 @@ export interface FormStore {
     updateTitle: (title: string) => void;
     updateComponentOrder: (components: FormComponent[]) => void;
     hasComponents: Ref<boolean>;
+    activeComponent: Ref<string | null>;
+    setActiveComponent: (id: string) => void;
+    clearActiveComponent: (event: MouseEvent) => void;
+    componentSettings: Ref<ComponentSettings | null>;
+    updateComponentSettings: (settings: ComponentSettings) => void;
 }

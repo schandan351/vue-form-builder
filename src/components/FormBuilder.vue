@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import { useFormStore } from '@/stores/formState';
-import { computed } from 'vue';
 import ComponentsGroupSideBar from "@/components/ComponentsGroupSideBar.vue";
 import FormPreview from "@/components/FormPreview.vue";
 import FormSettingSideBar from "@/components/FormSettingSideBar.vue";
 import FormHeader from "@/components/FormHeader.vue";
-
-const formStore = useFormStore();
-const hasComponents = computed(() => formStore.hasComponents);
 </script>
 
 <template>
@@ -23,7 +19,7 @@ const hasComponents = computed(() => formStore.hasComponents);
       <div class="flex-1 p-4 overflow-y-auto bg-white">
         <form-preview/>
       </div>
-      <div class="bg-gray-100 w-64 p-4 overflow-y-auto border-r border-gray-200">
+      <div class="bg-gray-100 w-100 p-4 overflow-y-auto border-r border-gray-200">
         <form-setting-side-bar/>
       </div>
     </div>
